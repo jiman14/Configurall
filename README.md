@@ -1,4 +1,4 @@
-# Configurall
+# Configurall v1.2
 Make anything configurable with the Configurator pattern.
 
  - .Net Standard 2.1 library.
