@@ -7,25 +7,44 @@ Make anything configurable with the Configurator pattern.
 
 1. Add your Attribute class.
 ```
-public class HostCfgAttribute : ConfiguratorAttribute
+public class EntityCfgAttribute : ConfiguratorAttribute
 {
    -- Attribute properties (i.e. Enviroment, DeviceType)
 }
 ```
-3. Add your configurator classes.
+2. Add your base configurator class.
 ```
-[HostCfgAttribute(..Attributes..)]
-public class HostCfg: ConfiguratorAttribute
+public class EntityCfg: ConfiguratorAttribute
 {
-   -- Configuration properties
+   // Entity configuration properties
+   - Property1 
+   - Property2
 }
 ```
-5. Get one configuration by attribute.
+3. Add your custom configuration classes
 ```
-public class HostCfgAttribute : ConfiguratorAttribute
+[HostCfgAttribute(AttributeProperty1: attrValue1, AttributeProperty2: attrValue1...)]
+public class CustomHostCfg11: HostCfg
 {
-   -- Attribute properties (i.e. Enviroment, DeviceType)
+   // Set entity configuration properties
+   - Property1 = propVal1 
+   - Property2 = propVal1
 }
+...
+[HostCfgAttribute(AttributeProperty1: attrValue2, AttributeProperty2: attrValue2...)]
+public class CustomHostCfg22: HostCfg
+{
+   // Set entity configuration properties
+   - Property1 = propVal2 
+   - Property2 = propVal2
+}
+```
+
+4. Get one configuration by attribute.
+```
+var hostCfg = new ConfigurallMgr<HostCfgAttribute>(Assembly.GetExecutingAssembly());
+// Configuration cached on first read
+var entityCfg = hostCfg.Get<EntityCfg>(new EntityCfgAttribute(attrValue1, attrValue2)); 
 ```
 
 # Simple, faster
