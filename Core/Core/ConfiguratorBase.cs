@@ -3,5 +3,5 @@
 namespace Configurall.Core
 {
     [Serializable]
-    public abstract class BaseConfigurator { }
+    public abstract class ConfiguratorBase { }
 }

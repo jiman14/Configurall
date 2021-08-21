@@ -22,7 +22,7 @@ namespace Configurall.Core
         }
         
         public T Get<T>(A attribute)
-            where T : BaseConfigurator
+            where T : ConfiguratorBase
         {            
 #if !DEBUG
             if (ConfigObjs.TryGetValue(attribute.GetKey(), out object obj))

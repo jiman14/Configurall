@@ -14,7 +14,7 @@ namespace Configurall.Example.Configurator
         Pre,
         Pro
     }
-    public class HostCfg : BaseConfigurator
+    public class HostCfg : ConfiguratorBase
     {
         public string HostURL { get; internal set; }
         public int Port { get; private set; } = 5001;
