@@ -1,7 +1,7 @@
 ﻿using Configurall.Core;
 using System;
 
-namespace Configurall.Example
+namespace Configurall.Example.Configurator
 {
     public class HostCfgAttribute : ConfiguratorAttribute
     {
