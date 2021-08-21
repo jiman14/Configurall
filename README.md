@@ -14,7 +14,7 @@ public class EntityCfgAttribute : ConfiguratorAttribute
 ```
 2. Add your base configurator class.
 ```
-public class EntityCfg: ConfiguratorAttribute
+public class EntityCfg: ConfiguratorBase
 {
    // Entity configuration properties
    - Property1 
@@ -23,16 +23,16 @@ public class EntityCfg: ConfiguratorAttribute
 ```
 3. Add your custom configuration classes
 ```
-[HostCfgAttribute(AttributeProperty1: attrValue1, AttributeProperty2: attrValue1...)]
-public class CustomHostCfg11: HostCfg
+[EntityCfgAttribute(AttributeProperty1: attrValue1, AttributeProperty2: attrValue1...)]
+public class CustomEntityCfg11: EntityCfg
 {
    // Set entity configuration properties
    - Property1 = propVal1 
    - Property2 = propVal1
 }
 ...
-[HostCfgAttribute(AttributeProperty1: attrValue2, AttributeProperty2: attrValue2...)]
-public class CustomHostCfg22: HostCfg
+[EntityCfgAttribute(AttributeProperty1: attrValue2, AttributeProperty2: attrValue2...)]
+public class CustomEntityCfg22: EntityCfg
 {
    // Set entity configuration properties
    - Property1 = propVal2 
@@ -42,9 +42,9 @@ public class CustomHostCfg22: HostCfg
 
 4. Get one configuration by attribute.
 ```
-var hostCfg = new ConfigurallMgr<HostCfgAttribute>(Assembly.GetExecutingAssembly());
+var entityCfgMgr = new ConfigurallMgr<EntityCfgAttribute>(Assembly.GetExecutingAssembly());
 // Configuration cached on first read
-var entityCfg = hostCfg.Get<EntityCfg>(new EntityCfgAttribute(attrValue1, attrValue2)); 
+var entityCfg = entityCfgMgr.Get<EntityCfg>(new EntityCfgAttribute(attrValue1, attrValue2)); 
 ```
 
 # Simple, faster
