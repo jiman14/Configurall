@@ -6,8 +6,27 @@ Make anything configurable with the Configurator pattern.
 # How to use
 
 1. Add your Attribute class.
-2. Add your configurator classes.
-3. Get one configuration by attribute.
+```
+public class HostCfgAttribute : ConfiguratorAttribute
+{
+   -- Attribute properties (i.e. Enviroment, DeviceType)
+}
+```
+3. Add your configurator classes.
+```
+[HostCfgAttribute(..Attributes..)]
+public class HostCfg: ConfiguratorAttribute
+{
+   -- Configuration properties
+}
+```
+5. Get one configuration by attribute.
+```
+public class HostCfgAttribute : ConfiguratorAttribute
+{
+   -- Attribute properties (i.e. Enviroment, DeviceType)
+}
+```
 
 # Simple, faster
 
